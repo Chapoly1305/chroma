@@ -39,6 +39,10 @@ On my machine, the minimal docker command to launch a shell is:
 
 `nvidia-docker run -it benland100/chroma3:nvidia`
 
+PS. new docker user with Nvidia configured, please use this:
+
+`docker run --gpus all -it benland100/chroma3:nvidia`
+
 ### Without nvidia-docker
 
 To use CUDA within a container, the host's NVIDIA device nodes must be passed to the container. This will not enable OpenGL functionality, but is sufficient for running Chroma on machines where `nvidia-docker` is unavailable. To see the required device nodes run `grep /dev/*nvidia*`. Each must be passed to docker with the `--device` flag as shown with `for dev in /dev/*nvidia*; do echo --device $dev:$dev; done`
